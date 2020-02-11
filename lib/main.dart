@@ -30,17 +30,35 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
 
+  List<String> korWord = [
+    "사과",
+    "바나나",
+    "포도",
+    "배",
+    "자두",
+    '수박'
+  ];
+
+  List<String> engWord = [
+    "APPLE",
+    "BANANA",
+    "GRAPE",
+    "PEAR",
+    "PLUM",
+    'WATER MELON'
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-      ),
-      body: Swiper(
+      // appBar: AppBar(
+      //   title: Text(widget.title),
+      // ),
+      body: SafeArea(child:  Swiper(        
         itemBuilder: (BuildContext context, int index) {
           return FlipCard(
           direction: FlipDirection.HORIZONTAL,
-          speed: 1000,
+          speed: 500,
           front: Container(
             //  decoration: BoxDecoration(
             //  color: Colors.deepOrange,
@@ -51,7 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
               elevation: 10,
               child: Center(
                 child: Text(
-                  '사과',
+                  korWord[index],
                   style: TextStyle(color: Colors.white, fontSize: 70,),),
               ),
             ),
@@ -61,19 +79,21 @@ class _MyHomePageState extends State<MyHomePage> {
             elevation: 10,
             child: Center(
               child: Text(
-                'APPLE',
+                engWord[index],
                 style: TextStyle(color: Colors.white, fontSize: 70),),
             ),
           ),
         );
         },
         itemCount: 5,
-        viewportFraction: 0.9,
-        scale: 0.9,
+        viewportFraction: 0.8,
+        scale: 0.8,
         onIndexChanged: (index) {
             print(index);
         }
+        
       ),
+      )
     );
   }
 }
