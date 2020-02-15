@@ -2,6 +2,7 @@
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
+import 'package:flutter_tts/flutter_tts.dart';
 
 void main() => runApp(MyApp());
 
@@ -47,9 +48,20 @@ class _MyHomePageState extends State<MyHomePage> {
     "PLUM",
     'WATER MELON'
   ];
+  
+  final FlutterTts flutterTts = FlutterTts();
 
   @override
   Widget build(BuildContext context) {
+
+    Future _speak(String text) async {
+      //print(await flutterTts.getLanguages);
+      await flutterTts.setLanguage('ko-KR');
+      //await flutterTts.setLanguage('en-US');
+      await flutterTts.setPitch(1);
+      print(await flutterTts.getVoices);
+      await flutterTts.speak(text);
+    }
     return Scaffold(
       // appBar: AppBar(
       //   title: Text(widget.title),
@@ -59,12 +71,15 @@ class _MyHomePageState extends State<MyHomePage> {
           return FlipCard(
           direction: FlipDirection.HORIZONTAL,
           speed: 500,
-          front: Container(
+          
+          front: Column(
             //  decoration: BoxDecoration(
             //  color: Colors.deepOrange,
             //  borderRadius: BorderRadius.all(Radius.circular(10.0)),
             //  ),
-            child: Card(
+            
+            children: <Widget>[
+              Card(
               color: Colors.red,
               elevation: 10,
               child: Center(
@@ -72,8 +87,11 @@ class _MyHomePageState extends State<MyHomePage> {
                   korWord[index],
                   style: TextStyle(color: Colors.white, fontSize: 70,),),
               ),
-            ),
-          ),         
+              ),
+              RaisedButton(onPressed: () => _speak(korWord[index]),
+              ),
+            ] 
+          ),                   
           back: Card(
             color: Colors.deepPurple,
             elevation: 10,
