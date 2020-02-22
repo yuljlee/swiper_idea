@@ -70,28 +70,19 @@ class _MyHomePageState extends State<MyHomePage> {
         itemBuilder: (BuildContext context, int index) {
           return FlipCard(
           direction: FlipDirection.HORIZONTAL,
-          speed: 500,
-          
-          front: Column(
-            //  decoration: BoxDecoration(
-            //  color: Colors.deepOrange,
-            //  borderRadius: BorderRadius.all(Radius.circular(10.0)),
-            //  ),
-            
-            children: <Widget>[
+          speed: 500,          
+          front:
               Card(
-              color: Colors.red,
-              elevation: 10,
-              child: Center(
-                child: Text(
-                  korWord[index],
-                  style: TextStyle(color: Colors.white, fontSize: 70,),),
-              ),
-              ),
-              RaisedButton(onPressed: () => _speak(korWord[index]),
-              ),
-            ] 
-          ),                   
+                color: Colors.red,
+                elevation: 10,
+                child: Center(
+                  child: Text(
+                    korWord[index],
+                    style: TextStyle(color: Colors.white, fontSize: 70,),),
+                  ),
+                ),              
+              // RaisedButton(onPressed: () => _speak(korWord[index]),
+              // ),                             
           back: Card(
             color: Colors.deepPurple,
             elevation: 10,
@@ -112,6 +103,7 @@ class _MyHomePageState extends State<MyHomePage> {
         
       ),
       )
+      
     );
   }
 }
