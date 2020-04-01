@@ -70,7 +70,7 @@ class _MyHomePageState extends State<MyHomePage> {
         itemBuilder: (BuildContext context, int index) {
           return FlipCard(
           direction: FlipDirection.HORIZONTAL,
-          speed: 500,          
+          speed: 500,
           front:
               Card(
                 color: Colors.red,
@@ -89,13 +89,15 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Center(
               child: Text(
                 engWord[index],
+
                 style: TextStyle(color: Colors.white, fontSize: 70),),
             ),
           ),
         );
         },
         itemCount: 5,
-        viewportFraction: 0.8,
+        viewportFraction: 0.8,ㅛㅁ
+        
         scale: 0.8,
         onIndexChanged: (index) {
             print(index);
