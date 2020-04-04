@@ -22,4 +22,8 @@ class Word {
     'WATER MELON'
   ];
 
+  String getKorWord(int index) {
+    return korWord[index];
+  }
+
 }

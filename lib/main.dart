@@ -3,6 +3,9 @@ import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:swiper_idea/model/word.dart';
+
+
 
 void main() => runApp(MyApp());
 
@@ -48,8 +51,13 @@ class _MyHomePageState extends State<MyHomePage> {
     "PLUM",
     'WATER MELON'
   ];
-  
+
   final FlutterTts flutterTts = FlutterTts();
+
+  //var word = new Word();
+   final Word word = Word();
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -66,37 +74,62 @@ class _MyHomePageState extends State<MyHomePage> {
       // appBar: AppBar(
       //   title: Text(widget.title),
       // ),
-      body: SafeArea(child:  Swiper(        
+      body: SafeArea(child: Swiper(        
         itemBuilder: (BuildContext context, int index) {
-          return FlipCard(
-          direction: FlipDirection.HORIZONTAL,
-          speed: 500,
-          front:
+          return Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
               Card(
                 color: Colors.red,
                 elevation: 10,
-                child: Center(
-                  child: Text(
-                    korWord[index],
-                    style: TextStyle(color: Colors.white, fontSize: 70,),),
-                  ),
-                ),              
-              // RaisedButton(onPressed: () => _speak(korWord[index]),
-              // ),                             
-          back: Card(
-            color: Colors.deepPurple,
-            elevation: 10,
-            child: Center(
-              child: Text(
-                engWord[index],
+                child: Container(
+                  height: 300,
+                  child: FlipCard(
+                      direction: FlipDirection.HORIZONTAL,
+                      speed: 500,
+                      front:
+                        Center(
+                          child: Text(
+                            korWord[index],
 
-                style: TextStyle(color: Colors.white, fontSize: 70),),
-            ),
-          ),
-        );
+                            style: TextStyle(color: Colors.white, fontSize: 70),),
+                        ),
+                                    
+                          // RaisedButton(onPressed: () => _speak(korWord[index]),
+                          // ),                             
+                      back: Card(
+                        color: Colors.deepPurple,
+                        elevation: 10,
+                        child: Center(
+                          child: Text(
+                            engWord[index],
+
+                            style: TextStyle(color: Colors.white, fontSize: 70),),
+                        ),
+                      ),
+                    ),)
+                
+                ),   
+                Card(
+                  color: Colors.blue,
+                  elevation: 10,
+                  child: Container(
+                    height: 300,
+                    width: 300,
+                    child: Text(
+                          engWord[index],
+
+                          style: TextStyle(color: Colors.white, fontSize: 70),),)
+                
+                ),   
+            ],
+          );
+          
+          
+
         },
         itemCount: 5,
-        viewportFraction: 0.8,ㅛㅁ
+        viewportFraction: 0.8,
         
         scale: 0.8,
         onIndexChanged: (index) {
