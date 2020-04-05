@@ -1,11 +1,8 @@
-
 import 'package:flip_card/flip_card.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_swiper/flutter_swiper.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:swiper_idea/model/word.dart';
-
-
 
 void main() => runApp(MyApp());
 
@@ -57,8 +54,6 @@ class _MyHomePageState extends State<MyHomePage> {
   //var word = new Word();
    final Word word = Word();
 
-
-
   @override
   Widget build(BuildContext context) {
 
@@ -91,10 +86,8 @@ class _MyHomePageState extends State<MyHomePage> {
                         Center(
                           child: Text(
                             korWord[index],
-
                             style: TextStyle(color: Colors.white, fontSize: 70),),
-                        ),
-                                    
+                        ),                                    
                           // RaisedButton(onPressed: () => _speak(korWord[index]),
                           // ),                             
                       back: Card(
@@ -110,26 +103,64 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),)
                 
                 ),   
-                Card(
-                  color: Colors.blue,
-                  elevation: 10,
+                Card(                  
+                  elevation: 5,
                   child: Container(
-                    height: 300,
-                    width: 300,
-                    child: Text(
-                          engWord[index],
-
-                          style: TextStyle(color: Colors.white, fontSize: 70),),)
-                
+                    height: 80,
+                    //width: 250,
+                    child: Center(
+                      child: Text(
+                          engWord[index],                          
+                          style: TextStyle(color: Colors.black, fontSize: 30),
+                          ),
+                      )
+                    )   
                 ),   
+                Card(                  
+                  elevation: 5,
+                  child: Container(
+                    height: 80,
+                    width: 250,
+                    child: Center(
+                      child: Text(
+                          engWord[index],                          
+                          style: TextStyle(color: Colors.black, fontSize: 30),
+                          ),
+                      )
+                    )   
+                ),
+                Card(                  
+                  elevation: 5,
+                  child: Container(
+                    height: 80,
+                    width: 250,
+                    child: Center(
+                      child: Text(
+                          engWord[index],                          
+                          style: TextStyle(color: Colors.black, fontSize: 30),
+                          ),
+                      )
+                    )   
+                ),   
+                Card(                  
+                  elevation: 5,
+                  child: Container(
+                    height: 80,
+                    width: 250,
+                    child: Center(
+                      child: Text(
+                          engWord[index],                          
+                          style: TextStyle(color: Colors.black, fontSize: 30),
+                          ),
+                      )
+                    )   
+                ),                                   
             ],
           );
           
-          
-
         },
         itemCount: 5,
-        viewportFraction: 0.8,
+        viewportFraction: 0.85,
         
         scale: 0.8,
         onIndexChanged: (index) {
